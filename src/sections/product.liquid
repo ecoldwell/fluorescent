@@ -7,7 +7,7 @@
       {% if product.images.size > 0 %}
         {% for image in product.images %}
         <li class="product-photo">
-          <a data-fancybox="gallery" href="{{ image  | img_url: '2400x' }}" class="lightbox-link">
+          <a data-fancybox="gallery" href="{{ image  | img_url: '2400x' }}" class="lightbox-link" id="{{ image.id }}">
             {% include 'responsive-image', image: image, sizes: "(max-width: 700px) 100vw, 50vw" %}
           </a>
         </li>
@@ -37,6 +37,20 @@
             <span class="product-price" itemprop="price">{{ variant.price | money }}</span>
             {% endif %}
           </p>
+          <div class="line-item-property__field button-size" id="button-size">
+          <label>Size</label><br>
+          <input required class="required" type="button" name="properties[Size]" value="Small"> 
+          <input required class="required" type="button" name="properties[Size]" value="Medium"> 
+          <input required class="required" type="button" name="properties[Size]" value="Large"> 
+          <input required class="required" type="button" name="properties[Size]" value="Extra Large"> 
+          </div>
+
+          <div class="line-item-property__field button-colour" id="button-colour">
+            <label>Colour</label><br>
+            <input required type="button" name="properties[Colour]" class="colour-select red required" onclick="location.href='#28222426022049';" > 
+            <input required type="button" name="properties[Colour]" class="colour-select green required" onclick="location.href='#28222425989281';"> 
+            <input required type="button" name="properties[Colour]" class="colour-select blue required" onclick="location.href='#28222426054817';"> 
+          </div>
         </div>
       </div><!-- .product-details-main -->
       {% form "product", product %}
