@@ -22,3 +22,11 @@ if (cookiesEnabled()) {
     'supports-cookies',
   );
 }
+$('#button-size input').on('click', function(){
+  $('input').removeClass('selected');
+  $(this).addClass('selected')
+})
+$('#button-colour input').on('click', function(){
+  $('input').removeClass('selected');
+  $(this).addClass('selected')
+})
